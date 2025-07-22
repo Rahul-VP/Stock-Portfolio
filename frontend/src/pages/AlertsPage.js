@@ -21,7 +21,7 @@ function AlertsPage({ toggleMode, mode }) {
   const fetchAlerts = async () => {
     setLoading(true);
     try {
-      const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/alerts`);
+      const res = await api.get('/api/alerts');
       setAlerts(res.data.alerts);
     } catch (err) {
       setError('Failed to fetch alerts');
