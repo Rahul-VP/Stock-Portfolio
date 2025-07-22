@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
+import api from './services/api';
 import { Box, Card, CardContent, TextField, Button, Typography, Alert, Snackbar } from '@mui/material';
 
 function LoginPage() {
