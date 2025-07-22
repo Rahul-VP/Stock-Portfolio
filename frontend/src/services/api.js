@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: '', // Use relative URLs, proxy will forward to backend
+  baseURL: 'https://stock-portfolio-6szp.onrender.com/api', // Use relative URLs, proxy will forward to backend
 });
 
 api.interceptors.request.use((config) => {
