@@ -11,6 +11,7 @@ import NewsPage from './pages/NewsPage';
 import AboutPage from './pages/AboutPage';
 import Fade from '@mui/material/Fade';
 import PrivateRoute from './utils/PrivateRoute';
+import api from './services/api';
 
 function App() {
   const [mode, setMode] = useState('light');
