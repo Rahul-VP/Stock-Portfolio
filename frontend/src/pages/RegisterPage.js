@@ -15,7 +15,12 @@ function RegisterPage() {
     e.preventDefault();
     setError('');
     try {
-      const res = await axios.post('/api/auth/register', { username, email, password });
+      const res = await axios.post('https://stock-portfolio-6szp.onrender.com/api/auth/register', {
+  username,
+  email,
+  password,
+});
+;
       localStorage.setItem('token', res.data.token);
       setSnackbar({ open: true, message: 'Registration successful!', severity: 'success' });
       setTimeout(() => navigate('/'), 1000);
