@@ -23,7 +23,7 @@ function DashboardPage({ toggleMode, mode }) {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const res = await api.get('/api/auth/me');
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/auth/me`);
         setUser(res.data);
       } catch (err) {}
     };
@@ -31,11 +31,11 @@ function DashboardPage({ toggleMode, mode }) {
     const fetchPortfolio = async () => {
       setLoading(true);
       try {
-        const res = await api.get('/api/portfolio');
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/portfolio`);
         setPortfolio(res.data.portfolio);
         // Fetch real history
         try {
-          const histRes = await api.get('/api/portfolio/history');
+          const histres = await axios.get(`${process.env.REACT_APP_API_URL}/api/portfolio/history`);
           if (histRes.data && histRes.data.length > 0) {
             setHistory(histRes.data.map(h => ({ date: h.date, value: h.value })));
           } else {
@@ -65,7 +65,7 @@ function DashboardPage({ toggleMode, mode }) {
     };
     const fetchAlerts = async () => {
       try {
-        const res = await api.get('/api/alerts');
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/alerts`);
         setAlerts(res.data.alerts);
       } catch (err) {}
     };
