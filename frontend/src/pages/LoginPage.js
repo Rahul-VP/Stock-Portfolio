@@ -14,10 +14,7 @@ function LoginPage() {
     e.preventDefault();
     setError('');
     try {
-      const res = await axios.post('https://stock-portfolio-backend.onrender.com/api/auth/login', {
-  email,
-  password,
-});
+      const res = await axios.post('https://stock-portfolio-6szp.onrender.com/api/auth/login', { email, password });
 
       localStorage.setItem('token', res.data.token);
       setSnackbar({ open: true, message: 'Login successful!', severity: 'success' });
