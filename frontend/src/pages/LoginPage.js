@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
-import api from '../services/api';
 import { Box, Card, CardContent, TextField, Button, Typography, Alert, Snackbar } from '@mui/material';
 
 function LoginPage() {
@@ -15,7 +14,11 @@ function LoginPage() {
     e.preventDefault();
     setError('');
     try {
-      const res = await axios.post('/api/auth/login', { email, password });
+      const res = await axios.post('https://stock-portfolio-backend.onrender.com/api/auth/login', {
+  email,
+  password,
+});
+
       localStorage.setItem('token', res.data.token);
       setSnackbar({ open: true, message: 'Login successful!', severity: 'success' });
       setTimeout(() => navigate('/'), 1000);
